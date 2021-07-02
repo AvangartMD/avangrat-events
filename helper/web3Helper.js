@@ -68,8 +68,8 @@ async function checkMinting(result, order) {
           findNft.tokenId = order.tokenId;
           findNft.status = statusObject.APPROVED;
           if (+order.saleType === 1) {
-            findNft.auctionStartDate = order.timeline;
-            findNft.auctionEndDate = result.timestamp;
+            findNft.auctionStartDate = result.timestamp;
+            findNft.auctionEndDate = order.timeline;
           }
           const saveNft = await findNft.save();
           const findUser = await UserModel.findById(saveNft.ownerId);
