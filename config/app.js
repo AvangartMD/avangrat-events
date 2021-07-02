@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
-web3Helper.getTransferEvent();
+
 function exitHandler(options) {
   mongoose.connection.close();
   process.exit();
@@ -40,5 +40,7 @@ app.all('/*', (req, res, next) => {
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
   next();
 });
+
+web3Helper.getTransferEvent();
 
 module.exports = app;

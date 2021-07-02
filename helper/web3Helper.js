@@ -8,12 +8,13 @@ const { statusObject } = require('./enum');
 const Utils = require('./utils');
 const provider =
   process.env.NODE_ENV === 'development'
-    ? 'wss://apis.ankr.com/wss/685960a71c81496fb48ac6f3db62fe0b/bba1c9bfcdf042fa0f335035c21d3ae5/binance/full/test'
-    : 'wss://bsc-ws-node.nariox.org:443';
+    ? 'wss://bsc.getblock.io/testnet/'
+    : 'wss://bsc.getblock.io/testnet/';
 
 const getWeb3Event = {};
 
 getWeb3Event.getTransferEvent = async (req, res) => {
+  console.log('tranfer ');
   try {
     const web3 = new Web3(provider);
     const contract = new web3.eth.Contract(
